@@ -1,5 +1,6 @@
 class DocsController < ApplicationController
   def index
+  	@docs = Doc.all
   end
 
   def new
@@ -20,6 +21,24 @@ class DocsController < ApplicationController
   end
 
   def edit
+  	@doc = Doc.find(params[:id])
+  end
+
+  def update
+  	@doc = Doc.find(params[:id])
+
+  	if @doc.update(doc_params)
+  		redirect_to @doc
+  		else
+  			render :edit
+  	end
+  end
+
+  def destroy
+  	@doc = Doc.find(params[:id])
+
+  	@doc.destroy
+  	redirect_to :action => :index
   end
 
   private

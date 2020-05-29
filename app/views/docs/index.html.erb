@@ -1,2 +1,10 @@
-<h1>Docs#index</h1>
-<p>Find me in app/views/docs/index.html.erb</p>
+<% @docs.each do |doc| %>
+
+	<h3><%= link_to doc.title, doc_path(doc.id) %></h3>
+	<p><%= time_ago_in_words(doc.created_at) %></p>
+	<p><%= truncate(doc.content, length:50) %></p>
+	
+<% end %>
+
+
+<%= link_to "Create Doc", new_doc_path %>

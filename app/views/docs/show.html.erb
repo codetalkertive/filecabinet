@@ -5,3 +5,6 @@
 
 <p><%= @doc.content %></p>
 
+<%= link_to "Edit", edit_doc_path(@doc.id) %>
+<%= link_to "Delete", doc_path(@doc.id), method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
+<%= link_to "Back", docs_path %>
