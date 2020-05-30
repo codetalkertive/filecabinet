@@ -1,9 +1,20 @@
-<%= form_for @doc do |f| %>
-	<%= f.label :title %>
-	<%= f.text_field :title %>
+<div class="flex-row d-flex justify-content-center">
+	<div class="col-md-8">
+	<%= form_for @doc do |f| %>
+	<div class="form-group">
+		<%= f.label :title %>
+	<%= f.text_field :title, class: 'form-control' %>
+	</div>	
+	<div class="form-group">
 	<%= f.label :content %>
-	<%= f.text_area :content %>
+	<%= f.text_area :content, class: 'form-control' %>
+	</div>
 
-	<%= f.submit %>
+	<%= f.submit "Create Document", class: 'btn btn-outline-primary' %>
+	<%= link_to "Back", docs_path, class: 'btn btn-outline-secondary' %>
 <% end %>
+	</div>
+
+</div>
+
 

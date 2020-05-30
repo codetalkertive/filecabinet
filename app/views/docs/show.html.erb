@@ -1,10 +1,15 @@
-<h1>Docs#show</h1>
-<p>Find me in app/views/docs/show.html.erb</p>
+<div class="container-fluid">
 
 <h3><%= @doc.title %></h3>
 
 <p><%= @doc.content %></p>
 
-<%= link_to "Edit", edit_doc_path(@doc.id) %>
-<%= link_to "Delete", doc_path(@doc.id), method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
-<%= link_to "Back", docs_path %>
+<table>
+	<tbody>
+		<td><%= link_to "Edit", edit_doc_path(@doc.id), class: 'btn btn-primary' %></td>
+		<td><%= button_to "Delete", doc_path(@doc.id), method: :delete, class: 'btn btn-danger' %>
+</td>
+		<td><%= link_to "Back", docs_path, class: 'btn btn-secondary' %></td>
+	</tbody>
+</table>
+</div>
